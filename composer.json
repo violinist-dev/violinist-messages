@@ -4,6 +4,6 @@
         "psr-4": {"eiriksm\\ViolinistMessages\\": "src"}
     },
     "require": {
-        "twig/twig": "^1.23.1"
+        "twig/twig": "~v1.34.1"
     }
 }
