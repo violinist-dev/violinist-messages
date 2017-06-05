@@ -1,4 +1,5 @@
 {
+    "name": "eiriksm/violinist-messages",
     "require": {
         "twig/twig": "^1.23.1"
     }
