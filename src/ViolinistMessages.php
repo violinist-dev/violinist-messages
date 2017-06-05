@@ -3,10 +3,65 @@
 namespace eiriksm\ViolinistMessages;
 
 class ViolinistMessages {
-  public function getPullRequestTitle($item) {
-    return sprintf('Update %s from %s to %s', $item[0], $item[1], $item[2]);
+
+  /**
+   * @var \Twig_Environment
+   */
+  private $twig;
+
+  /**
+   * ViolinistMessages constructor.
+   */
+  public function __construct() {
+    $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
+    $this->twig = new \Twig_Environment($loader);
   }
-  public function getPullRequestBody($item) {
-    return sprintf("%s\n***\nThis is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies.", $this->getPullRequestTitle($item));
+
+  /**
+   * Create title from the legacy format.
+   *
+   * @param array $item
+   *
+   * @return string
+   */
+  public function getPullRequestTitleLegacy($item) {
+    $msg = ViolinistUpdate::fromLegacyFormat($item);
+    return $this->getPullRequestTitle($msg);
+  }
+
+  /**
+   * Create body from the legacy format.
+   *
+   * @param array $item
+   *
+   * @return string
+   */
+  public function getPullRequestBodyLegacy($item) {
+    $msg = ViolinistUpdate::fromLegacyFormat($item);
+    return $this->getPullRequestBody($msg);
+  }
+
+  /**
+   * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
+   *
+   * @return string
+   */
+  public function getPullRequestBody(ViolinistUpdate $msg) {
+    return $this->twig->load('pull-request-body.twig')->render([
+      'title' => $this->getPullRequestTitle($msg),
+    ]);
+  }
+
+  /**
+   * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
+   *
+   * @return string
+   */
+  public function getPullRequestTitle(ViolinistUpdate $msg) {
+    return $this->twig->load('pull-request-title.twig')->render([
+      'name' => $msg->getName(),
+      'current_version' => $msg->getCurrentVersion(),
+      'new_version' => $msg->getNewVersion(),
+    ]);
   }
 }
