@@ -1,5 +1,8 @@
 {
     "name": "eiriksm/violinist-messages",
+    "autoload": {
+        "psr-4": {"eiriksm\\ViolinistMessages\\": "src"}
+    },
     "require": {
         "twig/twig": "^1.23.1"
     }
