@@ -1,5 +1,7 @@
 <?php
 
+namespace eiriksm\ViolinistMessages;
+
 class ViolinistMessages {
   public function getPullRequestTitle($item) {
     return sprintf('Update %s from %s to %s', $item[0], $item[1], $item[2]);
