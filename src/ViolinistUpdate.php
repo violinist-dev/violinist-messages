@@ -20,6 +20,25 @@ class ViolinistUpdate {
   private $newVersion;
 
   /**
+   * @var string
+   */
+  private $changelog;
+
+  /**
+   * @return string
+   */
+  public function getChangelog() {
+    return $this->changelog;
+  }
+
+  /**
+   * @param string $changelog
+   */
+  public function setChangelog($changelog) {
+    $this->changelog = $changelog;
+  }
+
+  /**
    * @return string
    */
   public function getName() {

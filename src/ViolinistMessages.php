@@ -49,6 +49,7 @@ class ViolinistMessages {
   public function getPullRequestBody(ViolinistUpdate $msg) {
     return $this->twig->load('pull-request-body.twig')->render([
       'title' => $this->getPullRequestTitle($msg),
+      'changelog' => $msg->getChangelog(),
     ]);
   }
 
