@@ -1,5 +1,5 @@
 {
-    "name": "eiriksm/violinist-messages",
+    "name": "violinist-dev/violinist-messages",
     "autoload": {
         "psr-4": {"eiriksm\\ViolinistMessages\\": "src"}
     },
