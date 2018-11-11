@@ -60,6 +60,7 @@ class ViolinistMessages {
    */
   public function getPullRequestTitle(ViolinistUpdate $msg) {
     return $this->twig->load('pull-request-title.twig')->render([
+        'security_prefix' => $msg->isSecurityUpdate() ? '[SECURITY] ' : '',
       'name' => $msg->getName(),
       'current_version' => $msg->getCurrentVersion(),
       'new_version' => $msg->getNewVersion(),

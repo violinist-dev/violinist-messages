@@ -24,6 +24,27 @@ class ViolinistUpdate {
    */
   private $changelog;
 
+    /**
+     * @var bool
+     */
+  private $securityUpdate;
+
+    /**
+     * @return bool
+     */
+    public function isSecurityUpdate()
+    {
+        return $this->securityUpdate;
+    }
+
+    /**
+     * @param bool $securityUpdate
+     */
+    public function setSecurityUpdate($securityUpdate)
+    {
+        $this->securityUpdate = $securityUpdate;
+    }
+
   /**
    * @return string
    */
