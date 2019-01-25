@@ -2,20 +2,22 @@
 
 namespace eiriksm\ViolinistMessages;
 
-class ViolinistMessages {
+class ViolinistMessages
+{
 
   /**
    * @var \Twig_Environment
    */
-  private $twig;
+    private $twig;
 
   /**
    * ViolinistMessages constructor.
    */
-  public function __construct() {
-    $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
-    $this->twig = new \Twig_Environment($loader);
-  }
+    public function __construct()
+    {
+        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
+        $this->twig = new \Twig_Environment($loader);
+    }
 
   /**
    * Create title from the legacy format.
@@ -24,10 +26,11 @@ class ViolinistMessages {
    *
    * @return string
    */
-  public function getPullRequestTitleLegacy($item) {
-    $msg = ViolinistUpdate::fromLegacyFormat($item);
-    return $this->getPullRequestTitle($msg);
-  }
+    public function getPullRequestTitleLegacy($item)
+    {
+        $msg = ViolinistUpdate::fromLegacyFormat($item);
+        return $this->getPullRequestTitle($msg);
+    }
 
   /**
    * Create body from the legacy format.
@@ -36,10 +39,11 @@ class ViolinistMessages {
    *
    * @return string
    */
-  public function getPullRequestBodyLegacy($item) {
-    $msg = ViolinistUpdate::fromLegacyFormat($item);
-    return $this->getPullRequestBody($msg);
-  }
+    public function getPullRequestBodyLegacy($item)
+    {
+        $msg = ViolinistUpdate::fromLegacyFormat($item);
+        return $this->getPullRequestBody($msg);
+    }
 
     /**
     * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
@@ -61,12 +65,13 @@ class ViolinistMessages {
    *
    * @return string
    */
-  public function getPullRequestTitle(ViolinistUpdate $msg) {
-    return $this->twig->load('pull-request-title.twig')->render([
+    public function getPullRequestTitle(ViolinistUpdate $msg)
+    {
+        return $this->twig->load('pull-request-title.twig')->render([
         'security_prefix' => $msg->isSecurityUpdate() ? '[SECURITY] ' : '',
-      'name' => $msg->getName(),
-      'current_version' => $msg->getCurrentVersion(),
-      'new_version' => $msg->getNewVersion(),
-    ]);
-  }
+        'name' => $msg->getName(),
+        'current_version' => $msg->getCurrentVersion(),
+        'new_version' => $msg->getNewVersion(),
+        ]);
+    }
 }

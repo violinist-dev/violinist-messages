@@ -6,5 +6,12 @@
     },
     "require": {
         "twig/twig": "^1.23.1"
+    },
+    "scripts": {
+      "test": "@composer lint && phpunit",
+      "lint": "phpcs -p -n"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4"
     }
 }

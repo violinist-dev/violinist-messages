@@ -2,32 +2,33 @@
 
 namespace eiriksm\ViolinistMessages;
 
-class ViolinistUpdate {
+class ViolinistUpdate
+{
 
   /**
    * @var string
    */
-  private $name;
+    private $name;
 
   /**
    * @var string
    */
-  private $currentVersion;
+    private $currentVersion;
 
   /**
    * @var string
    */
-  private $newVersion;
+    private $newVersion;
 
   /**
    * @var string
    */
-  private $changelog;
+    private $changelog;
 
     /**
      * @var bool
      */
-  private $securityUpdate;
+    private $securityUpdate;
 
     /**
      * @var string|null
@@ -69,69 +70,78 @@ class ViolinistUpdate {
   /**
    * @return string
    */
-  public function getChangelog() {
-    return $this->changelog;
-  }
+    public function getChangelog()
+    {
+        return $this->changelog;
+    }
 
   /**
    * @param string $changelog
    */
-  public function setChangelog($changelog) {
-    $this->changelog = $changelog;
-  }
+    public function setChangelog($changelog)
+    {
+        $this->changelog = $changelog;
+    }
 
   /**
    * @return string
    */
-  public function getName() {
-    return $this->name;
-  }
+    public function getName()
+    {
+        return $this->name;
+    }
 
   /**
    * @param string $name
    */
-  public function setName($name) {
-    $this->name = $name;
-  }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
   /**
    * @return string
    */
-  public function getCurrentVersion() {
-    return $this->currentVersion;
-  }
+    public function getCurrentVersion()
+    {
+        return $this->currentVersion;
+    }
 
   /**
    * @param string $currentVersion
    */
-  public function setCurrentVersion($currentVersion) {
-    $this->currentVersion = $currentVersion;
-  }
+    public function setCurrentVersion($currentVersion)
+    {
+        $this->currentVersion = $currentVersion;
+    }
 
   /**
    * @return string
    */
-  public function getNewVersion() {
-    return $this->newVersion;
-  }
+    public function getNewVersion()
+    {
+        return $this->newVersion;
+    }
 
   /**
    * @param string $newVersion
    */
-  public function setNewVersion($newVersion) {
-    $this->newVersion = $newVersion;
-  }
+    public function setNewVersion($newVersion)
+    {
+        $this->newVersion = $newVersion;
+    }
 
   /**
    * @param array $item
    *
    * @return \eiriksm\ViolinistMessages\ViolinistUpdate
    */
-  public static function fromLegacyFormat(array $item) {
-    $update = new ViolinistUpdate();
-    $update->setName($item[0]);
-    $update->setCurrentVersion($item[1]);
-    $update->setNewVersion($item[2]);
-    return $update;
-  }
+    public static function fromLegacyFormat(array $item)
+    {
+        $update = new ViolinistUpdate();
+        $update->setName($item[0]);
+        $update->setCurrentVersion($item[1]);
+        $update->setNewVersion($item[2]);
+        return $update;
+    }
 }
