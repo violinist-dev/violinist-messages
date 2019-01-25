@@ -30,6 +30,27 @@ class ViolinistUpdate {
   private $securityUpdate;
 
     /**
+     * @var string|null
+     */
+    private $customMessage = null;
+
+    /**
+     * @return null|string
+     */
+    public function getCustomMessage()
+    {
+        return $this->customMessage;
+    }
+
+    /**
+     * @param null|string $customMessage
+     */
+    public function setCustomMessage($customMessage)
+    {
+        $this->customMessage = $customMessage;
+    }
+
+    /**
      * @return bool
      */
     public function isSecurityUpdate()

@@ -41,17 +41,20 @@ class ViolinistMessages {
     return $this->getPullRequestBody($msg);
   }
 
-  /**
-   * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
-   *
-   * @return string
-   */
-  public function getPullRequestBody(ViolinistUpdate $msg) {
-    return $this->twig->load('pull-request-body.twig')->render([
-      'title' => $this->getPullRequestTitle($msg),
-      'changelog' => $msg->getChangelog(),
-    ]);
-  }
+    /**
+    * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
+    *
+    * @return string
+    */
+    public function getPullRequestBody(ViolinistUpdate $msg)
+    {
+        $twig = $this->twig->load('pull-request-body.twig');
+        return $twig->render([
+            'title' => $this->getPullRequestTitle($msg),
+            'changelog' => $msg->getChangelog(),
+            'custom_message' => $msg->getCustomMessage(),
+        ]);
+    }
 
   /**
    * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
