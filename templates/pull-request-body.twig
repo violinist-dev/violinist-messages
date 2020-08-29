@@ -1,6 +1,21 @@
 If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
 
+{% if updated_list %}
+  ### Updated packages
+
+  Some times an update also needs new or updated dependencies to be installed. Even if this branch is for updating one dependency, it might contain other installs or updates. All of the updates in this branch can be found here.
+
+  <details>
+    <summary>List of updated packages</summary>
+
+{{ updated_list }}
+
+  </details>
+{% endif %}
+
 {% if changelog %}
+  ### Changelog
+
   Here is a list of changes between the version you use, and the version this pull request updates to:
 
   {{ changelog }}

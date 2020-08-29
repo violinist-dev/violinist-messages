@@ -54,10 +54,28 @@ class ViolinistMessages
     {
         $twig = $this->twig->load('pull-request-body.twig');
         return $twig->render([
+            'updated_list' => $this->getUpdatedList($msg->getUpdatedList()),
             'title' => $this->getPullRequestTitle($msg),
             'changelog' => $msg->getChangelog(),
             'custom_message' => $msg->getCustomMessage(),
         ]);
+    }
+
+    /**
+     * @param UpdateListItem[] $list
+     */
+    protected function getUpdatedList(array $list)
+    {
+        // Create some nice looking markdown for this.
+        $lines = [];
+        foreach ($list as $item) {
+            if ($item->isNew()) {
+                $lines[] = sprintf('- %s: %s (new package, previously not installed)', $item->getPackageName(), $item->getNewVersion());
+            } else {
+                $lines[] = sprintf('- %s: %s (updated from %s)', $item->getPackageName(), $item->getNewVersion(), $item->getOldVersion());
+            }
+        }
+        return implode("\n", $lines);
     }
 
     /**
