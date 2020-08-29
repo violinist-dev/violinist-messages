@@ -2,6 +2,7 @@
 
 namespace Violinist\ViolinistMessages\Tests\Unit;
 
+use eiriksm\ViolinistMessages\UpdateListItem;
 use eiriksm\ViolinistMessages\ViolinistMessages;
 use eiriksm\ViolinistMessages\ViolinistUpdate;
 use PHPUnit\Framework\TestCase;
@@ -63,6 +64,36 @@ class UnitTest extends TestCase
         // Jeez. That function does not make much use of its item. Just checking
         // for the default text in here then.
         $this->assertFalse(strpos($body, 'This is an automated pull request') === false);
+    }
+
+    public function testUpdateList()
+    {
+        $message = new ViolinistMessages();
+        $update_items = [
+            new UpdateListItem('first/updated', '2.0.1', '2.0.2'),
+            new UpdateListItem('other/new', '2.0.0'),
+        ];
+        $update = new ViolinistUpdate();
+        $update->setUpdatedList($update_items);
+        $body = $message->getPullRequestBody($update);
+        $this->assertEquals('If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
+
+  ### Updated packages
+
+  Some times an update also needs new or updated dependencies to be installed. Even if this branch is for updating one dependency, it might contain other installs or updates. All of the updates in this branch can be found here.
+
+  <details>
+    <summary>List of updated packages</summary>
+
+- first/updated: 2.0.1 (updated from 2.0.2)
+- other/new: 2.0.0 (new package, previously not installed)
+
+  </details>
+
+
+***
+This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).
+', $body);
     }
 
     protected function getLegacyItem()

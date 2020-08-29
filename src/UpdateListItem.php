@@ -16,7 +16,7 @@ class UpdateListItem
         $this->oldVersion = $oldVersion;
         if (!$this->oldVersion) {
             // Just assume it is new then?
-            $this->isNew = true;
+            $this->setIsNew(true);
         }
     }
 
@@ -45,27 +45,11 @@ class UpdateListItem
     }
 
     /**
-     * @param mixed $packageName
-     */
-    public function setPackageName($packageName)
-    {
-        $this->packageName = $packageName;
-    }
-
-    /**
      * @return mixed
      */
     public function getOldVersion()
     {
         return $this->oldVersion;
-    }
-
-    /**
-     * @param mixed $oldVersion
-     */
-    public function setOldVersion($oldVersion)
-    {
-        $this->oldVersion = $oldVersion;
     }
 
     /**
@@ -76,11 +60,4 @@ class UpdateListItem
         return $this->newVersion;
     }
 
-    /**
-     * @param mixed $newVersion
-     */
-    public function setNewVersion($newVersion)
-    {
-        $this->newVersion = $newVersion;
-    }
 }
