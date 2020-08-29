@@ -36,6 +36,27 @@ class ViolinistUpdate
     private $customMessage = null;
 
     /**
+     * @var UpdateListItem[]
+     */
+    private $updatedList = [];
+
+    /**
+     * @return UpdateListItem[]
+     */
+    public function getUpdatedList()
+    {
+        return $this->updatedList;
+    }
+
+    /**
+     * @param UpdateListItem[]
+     */
+    public function setUpdatedList(array $updatedList)
+    {
+        $this->updatedList = $updatedList;
+    }
+
+    /**
      * @return null|string
      */
     public function getCustomMessage()
