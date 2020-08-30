@@ -78,17 +78,17 @@ class UnitTest extends TestCase
         $body = $message->getPullRequestBody($update);
         $this->assertEquals('If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
 
-  ### Updated packages
+### Updated packages
 
-  Some times an update also needs new or updated dependencies to be installed. Even if this branch is for updating one dependency, it might contain other installs or updates. All of the updates in this branch can be found here.
+Some times an update also needs new or updated dependencies to be installed. Even if this branch is for updating one dependency, it might contain other installs or updates. All of the updates in this branch can be found here.
 
-  <details>
-    <summary>List of updated packages</summary>
+<details>
+<summary>List of updated packages</summary>
 
 - first/updated: 2.0.1 (updated from 2.0.2)
 - other/new: 2.0.0 (new package, previously not installed)
 
-  </details>
+</details>
 
 
 ***
