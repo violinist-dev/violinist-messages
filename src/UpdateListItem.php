@@ -8,6 +8,7 @@ class UpdateListItem
     private $oldVersion;
     private $newVersion;
     private $isNew = false;
+    private $isRemoved = false;
 
     public function __construct($packageName, $newVersion, $oldVersion = null)
     {
@@ -18,6 +19,22 @@ class UpdateListItem
             // Just assume it is new then?
             $this->setIsNew(true);
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRemoved(): bool
+    {
+        return $this->isRemoved;
+    }
+
+    /**
+     * @param bool $isNew
+     */
+    public function setIsRemoved(bool $isRemoved)
+    {
+        $this->isRemoved = $isRemoved;
     }
 
     /**

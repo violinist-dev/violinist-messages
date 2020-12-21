@@ -71,6 +71,8 @@ class ViolinistMessages
         foreach ($list as $item) {
             if ($item->isNew()) {
                 $lines[] = sprintf('- %s: %s (new package, previously not installed)', $item->getPackageName(), $item->getNewVersion());
+            } else if ($item->isRemoved()) {
+                $lines[] = sprintf('- %s %s (package was removed)', $item->getPackageName(), $item->getNewVersion());
             } else {
                 $lines[] = sprintf('- %s: %s (updated from %s)', $item->getPackageName(), $item->getNewVersion(), $item->getOldVersion());
             }

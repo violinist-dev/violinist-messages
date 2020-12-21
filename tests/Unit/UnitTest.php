@@ -96,6 +96,41 @@ This is an automated pull request from [Violinist](https://violinist.io/): Conti
 ', $body);
     }
 
+    public function testUpdateListOneRemoved()
+    {
+        $message = new ViolinistMessages();
+        $removed = new UpdateListItem('third/removed', 'x');
+        $removed->setIsRemoved(true);
+        $removed->setIsNew(false);
+        $update_items = [
+            new UpdateListItem('first/updated', '2.0.1', '2.0.2'),
+            new UpdateListItem('other/new', '2.0.0'),
+            $removed
+        ];
+        $update = new ViolinistUpdate();
+        $update->setUpdatedList($update_items);
+        $body = $message->getPullRequestBody($update);
+        $this->assertEquals('If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
+
+### Updated packages
+
+Some times an update also needs new or updated dependencies to be installed. Even if this branch is for updating one dependency, it might contain other installs or updates. All of the updates in this branch can be found here.
+
+<details>
+<summary>List of updated packages</summary>
+
+- first/updated: 2.0.1 (updated from 2.0.2)
+- other/new: 2.0.0 (new package, previously not installed)
+- third/removed x (package was removed)
+
+</details>
+
+
+***
+This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).
+', $body);
+    }
+
     protected function getLegacyItem()
     {
         return [
