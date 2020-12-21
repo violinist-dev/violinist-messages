@@ -1,0 +1,46 @@
+version: 2
+shared: &shared
+  steps:
+    - checkout
+    - run: composer install --prefer-dist
+    - run: composer test
+
+jobs:
+  "php70":
+    docker:
+      - image: circleci/php:7.0-cli
+    <<: *shared
+  "php71":
+    environment:
+      PHP_VERSION: 71
+      COMPOSER_VERSION: 1
+    docker:
+      - image: circleci/php:7.1-cli
+    <<: *shared
+  "php72":
+    docker:
+      - image: circleci/php:7.2-cli
+    <<: *shared
+  "php73":
+    docker:
+      - image: circleci/php:7.3-cli
+    <<: *shared
+  "php74":
+    docker:
+      - image: circleci/php:7.4-cli
+    <<: *shared
+  "php80":
+    docker:
+      - image: circleci/php:7.4-cli
+    <<: *shared
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "php70"
+      - "php71"
+      - "php72"
+      - "php73"
+      - "php74"
+      - "php80"
