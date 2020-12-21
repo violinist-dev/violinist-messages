@@ -6,7 +6,7 @@ shared: &shared
     - checkout
     - run: composer install --prefer-dist
     - run: composer test
-
+    - run: composer validate
 jobs:
   "php70":
     docker:

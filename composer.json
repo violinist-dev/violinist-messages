@@ -1,6 +1,7 @@
 {
     "name": "violinist-dev/violinist-messages",
     "description": "Template(s) for the pull requests that violinist.io sends on updates.",
+    "license": "MIT",
     "autoload": {
         "psr-4": {"eiriksm\\ViolinistMessages\\": "src"}
     },
