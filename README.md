@@ -25,6 +25,8 @@ Currently it receives the following variables:
 
 `title`: The title rendered from the title template.
 
-`changelog` A markdown formatted changelog list, if available.
+`changelog`: A markdown formatted changelog list, if available.
 
-`custom_message` A custom message, if configured.
+`custom_message`: A custom message, if configured.
+
+`updated_list`: A list of the changes packages in the update.
