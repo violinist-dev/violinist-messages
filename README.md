@@ -1,6 +1,6 @@
 # violinist-messages
 
-[![Build Status](https://travis-ci.org/violinist-dev/violinist-messages.svg?branch=master)](https://travis-ci.org/violinist-dev/violinist-messages)
+[![Build status](https://circleci.com/gh/violinist-dev/violinist-messages.svg?style=shield)](https://circleci.com/gh/violinist-dev/violinist-messages)
 [![Coverage Status](https://coveralls.io/repos/github/violinist-dev/violinist-messages/badge.svg?branch=master)](https://coveralls.io/github/violinist-dev/violinist-messages?branch=master)
 
 Template(s) for the pull requests that we send on updates.
