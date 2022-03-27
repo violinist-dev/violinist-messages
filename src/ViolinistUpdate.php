@@ -69,7 +69,7 @@ class ViolinistUpdate
     }
 
     /**
-     * @param UpdateListItem[]
+     * @param UpdateListItem[] $updatedList
      */
     public function setUpdatedList(array $updatedList)
     {
