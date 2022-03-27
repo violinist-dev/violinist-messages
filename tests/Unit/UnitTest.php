@@ -39,7 +39,7 @@ class UnitTest extends TestCase
         $update->setCurrentVersion('1');
         $this->assertEquals('1', $update->getCurrentVersion());
         $update->setChangedFiles(['file1', 'file2']);
-        $this>self::assertEquals(['file1', 'file2'], $update->getChangedFiles());
+        self::assertEquals(['file1', 'file2'], $update->getChangedFiles());
     }
 
     public function testLegacyFormat()
