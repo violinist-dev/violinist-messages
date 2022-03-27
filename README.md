@@ -29,4 +29,8 @@ Currently it receives the following variables:
 
 `custom_message`: A custom message, if configured.
 
-`updated_list`: A list of the changes packages in the update.
+`updated_list`: A list of the changed packages in the update.
+
+`package`: The name of the package being updated.
+
+`changed_files`: An array of the files changed in the update, if available.
