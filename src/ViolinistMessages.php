@@ -59,6 +59,7 @@ class ViolinistMessages
             'changelog' => $msg->getChangelog(),
             'changed_files' => $msg->getChangedFiles(),
             'custom_message' => $msg->getCustomMessage(),
+            'package' => $msg->getName(),
         ]);
     }
 
