@@ -12,6 +12,19 @@ Some times an update also needs new or updated dependencies to be installed. Eve
 
 </details>
 {% endif %}
+{% if changed_files %}
+### Changed files
+
+Here is a list of changed files between the version you use, and the version this pull request updates to:
+
+<details>
+  <summary>List of changed files</summary>
+
+  {% for file in changed_files %}
+    {{ file }}
+  {% endfor %}
+</details>
+{% endif %}
 
 {% if changelog %}
 ### Changelog

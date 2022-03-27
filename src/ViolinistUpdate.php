@@ -40,6 +40,26 @@ class ViolinistUpdate
      */
     private $updatedList = [];
 
+    private $changedFiles = [];
+
+    /**
+     * @return array
+     */
+    public function getChangedFiles(): array
+    {
+        return $this->changedFiles;
+    }
+
+    /**
+     * @param array $changedFiles
+     */
+    public function setChangedFiles(array $changedFiles)
+    {
+        $this->changedFiles = $changedFiles;
+    }
+
+
+
     /**
      * @return UpdateListItem[]
      */
@@ -49,7 +69,7 @@ class ViolinistUpdate
     }
 
     /**
-     * @param UpdateListItem[]
+     * @param UpdateListItem[] $updatedList
      */
     public function setUpdatedList(array $updatedList)
     {

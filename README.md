@@ -1,6 +1,6 @@
 # violinist-messages
 
-[![Build status](https://circleci.com/gh/violinist-dev/violinist-messages.svg?style=shield)](https://circleci.com/gh/violinist-dev/violinist-messages)
+[![Test](https://github.com/violinist-dev/violinist-messages/actions/workflows/test.yml/badge.svg)](https://github.com/violinist-dev/violinist-messages/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/violinist-dev/violinist-messages/badge.svg?branch=master)](https://coveralls.io/github/violinist-dev/violinist-messages?branch=master)
 
 Template(s) for the pull requests that we send on updates.
@@ -29,4 +29,8 @@ Currently it receives the following variables:
 
 `custom_message`: A custom message, if configured.
 
-`updated_list`: A list of the changes packages in the update.
+`updated_list`: A list of the changed packages in the update.
+
+`package`: The name of the package being updated.
+
+`changed_files`: An array of the files changed in the update, if available.

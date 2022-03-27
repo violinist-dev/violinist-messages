@@ -30,7 +30,7 @@ class UpdateListItem
     }
 
     /**
-     * @param bool $isNew
+     * @param bool $isRemoved
      */
     public function setIsRemoved(bool $isRemoved)
     {
