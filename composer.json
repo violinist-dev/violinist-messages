@@ -9,6 +9,7 @@
         "twig/twig": "^1.23.1"
     },
     "scripts": {
+      "phpstan": "phpstan analyse src test",
       "test": "@composer lint && phpunit",
       "lint": "phpcs -p -n"
     },
