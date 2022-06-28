@@ -24,6 +24,14 @@ class UnitTest extends TestCase
         $this->assertFalse(strpos($message->getPullRequestBody($update), 'MY CUSTOM') === false);
     }
 
+    public function testPullRequestClosed()
+    {
+        $id = 123;
+        $message = new ViolinistMessages();
+        self::assertEquals('This will now be closed, since it has been superseded by #123.
+', $message->getPullRequestClosedMessage($id));
+    }
+
     public function testSetters()
     {
         $update = new ViolinistUpdate();
