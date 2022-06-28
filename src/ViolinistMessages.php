@@ -63,6 +63,14 @@ class ViolinistMessages
         ]);
     }
 
+    public function getPullRequestClosedMessage($new_pr_id)
+    {
+        $twig = $this->twig->load('pull-request-closed-message.twig');
+        return $twig->render([
+            'new_pr_id' => $new_pr_id,
+        ]);
+    }
+
     /**
      * @param UpdateListItem[] $list
      */
