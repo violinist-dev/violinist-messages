@@ -40,6 +40,7 @@ if (!is_dir($directory)) {
 
 $template = '<html>
 <head>
+<meta name="viewport" content="width=device-width">
 <meta charSet="utf-8"/>
     <style>
         .container {
