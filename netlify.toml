@@ -1,0 +1,6 @@
+[build]
+  publish = "public"
+  command = "php --version"
+
+[build.environment]
+  PHP_VERSION = "7.4"
