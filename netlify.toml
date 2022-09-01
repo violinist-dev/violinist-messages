@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "php --version"
+  command = "composer preview"
 
 [build.environment]
   PHP_VERSION = "7.4"
