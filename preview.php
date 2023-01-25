@@ -69,7 +69,7 @@ $template = '<html>
 </body>
 </html>
 ';
-
+print_r($converter->convert($message->getPullRequestBody($update))));
 file_put_contents("$directory/body.html", sprintf($template, $converter->convert($message->getPullRequestBody($update))));
 file_put_contents("$directory/index.html", sprintf($template, '    <ul>
     <li>
