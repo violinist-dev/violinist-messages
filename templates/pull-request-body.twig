@@ -8,8 +8,6 @@ Some times an update also needs new or updated dependencies to be installed. Eve
 {{ updated_list }}
 
 {% endif %}
-{% if changed_files %}
-
 {% if release_notes %}
 ### Release notes
 
@@ -23,6 +21,7 @@ Here are the release notes for all versions released between your current runnin
 </details>
 
 {% endif%}
+{% if changed_files %}
 ### Changed files
 
 Here is a list of changed files between the version you use, and the version this pull request updates to:
