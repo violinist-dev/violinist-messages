@@ -42,6 +42,8 @@ class ViolinistUpdate
 
     private $changedFiles = [];
 
+    protected $packageReleaseNotes = [];
+
     /**
      * @return array
      */
@@ -184,5 +186,10 @@ class ViolinistUpdate
         $update->setCurrentVersion($item[1]);
         $update->setNewVersion($item[2]);
         return $update;
+    }
+
+    public function setPackageReleaseNotes($release_notes_for_package)
+    {
+        $this->packageReleaseNotes = $release_notes_for_package;
     }
 }
