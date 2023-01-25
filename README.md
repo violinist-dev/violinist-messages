@@ -38,3 +38,5 @@ Currently it receives the following variables:
 `package`: The name of the package being updated.
 
 `changed_files`: An array of the files changed in the update, if available.
+
+`release_notes`: An array of links to release notes, if available.
