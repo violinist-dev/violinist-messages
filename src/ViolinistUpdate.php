@@ -52,7 +52,8 @@ class ViolinistUpdate
         return $this->changedFiles;
     }
 
-    public function getReleaseNotes(): array {
+    public function getReleaseNotes(): array
+    {
         return $this->packageReleaseNotes;
     }
 
