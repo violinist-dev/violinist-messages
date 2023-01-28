@@ -34,7 +34,6 @@ $update->setPackageReleaseNotes([
     '- [Release notes for tag 8.x-1.19](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.19)',
     '- [Release notes for tag 8.x-1.18](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.18)',
 ]);
-$update->setPackageReleaseNotes([]);
 $update->setChangelog('- [e8c563c47](https://github.com/vendor/updated_package/commit/e8c563c47) `Prepare release`
 - [87e59a5e7](https://github.com/vendor/updated_package/commit/87e59a5e7) `Update`
 - [5b351a5de](https://github.com/vendor/updated_package/commit/5b351a5de) `Change`
