@@ -86,7 +86,6 @@ class UnitTest extends TestCase
         $update = new ViolinistUpdate();
         $update->setUpdatedList($update_items);
         $body = $message->getPullRequestBody($update);
-        $a = 'b';
         $this->assertEquals('If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
 
 ### Updated packages
