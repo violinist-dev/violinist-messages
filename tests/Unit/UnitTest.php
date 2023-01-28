@@ -48,6 +48,14 @@ class UnitTest extends TestCase
         $this->assertEquals('1', $update->getCurrentVersion());
         $update->setChangedFiles(['file1', 'file2']);
         self::assertEquals(['file1', 'file2'], $update->getChangedFiles());
+        $update->setPackageReleaseNotes([
+            '- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)',
+            '- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)',
+        ]);
+        self::assertEquals([
+            '- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)',
+            '- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)',
+        ], $update->getPackageReleaseNotes());
     }
 
     public function testLegacyFormat()

@@ -22,6 +22,18 @@ $update->setCurrentVersion('1.0.0');
 $update->setNewVersion('1.0.1');
 $update->setUpdatedList($update_items);
 $update->setChangedFiles(['README.md', 'composer.json']);
+$update->setPackageReleaseNotes([
+    '- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)',
+    '- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)',
+    '- [Release notes for tag 8.x-1.25](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.25)',
+    '- [Release notes for tag 8.x-1.24](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.24)',
+    '- [Release notes for tag 8.x-1.23](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.23)',
+    '- [Release notes for tag 8.x-1.22](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.22)',
+    '- [Release notes for tag 8.x-1.21](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.21)',
+    '- [Release notes for tag 8.x-1.20](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.20)',
+    '- [Release notes for tag 8.x-1.19](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.19)',
+    '- [Release notes for tag 8.x-1.18](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.18)',
+]);
 $update->setChangelog('- [e8c563c47](https://github.com/vendor/updated_package/commit/e8c563c47) `Prepare release`
 - [87e59a5e7](https://github.com/vendor/updated_package/commit/87e59a5e7) `Update`
 - [5b351a5de](https://github.com/vendor/updated_package/commit/5b351a5de) `Change`
