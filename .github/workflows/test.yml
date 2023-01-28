@@ -57,6 +57,9 @@ jobs:
 
       - run: composer validate
 
+      - run: composer preview
+
+
       - name: Coveralls
         if: matrix.php-version == 7.4
         env:
