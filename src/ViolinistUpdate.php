@@ -42,12 +42,19 @@ class ViolinistUpdate
 
     private $changedFiles = [];
 
+    protected $packageReleaseNotes = [];
+
     /**
      * @return array
      */
     public function getChangedFiles(): array
     {
         return $this->changedFiles;
+    }
+
+    public function getPackageReleaseNotes(): array
+    {
+        return $this->packageReleaseNotes;
     }
 
     /**
@@ -57,8 +64,6 @@ class ViolinistUpdate
     {
         $this->changedFiles = $changedFiles;
     }
-
-
 
     /**
      * @return UpdateListItem[]
@@ -184,5 +189,10 @@ class ViolinistUpdate
         $update->setCurrentVersion($item[1]);
         $update->setNewVersion($item[2]);
         return $update;
+    }
+
+    public function setPackageReleaseNotes($release_notes_for_package)
+    {
+        $this->packageReleaseNotes = $release_notes_for_package;
     }
 }
