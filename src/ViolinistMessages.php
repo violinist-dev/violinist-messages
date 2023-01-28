@@ -58,7 +58,7 @@ class ViolinistMessages
             'title' => $this->getPullRequestTitle($msg),
             'changelog' => $msg->getChangelog(),
             'changed_files' => $msg->getChangedFiles(),
-            'release_notes' => $msg->getReleaseNotes(),
+            'release_notes' => $msg->getPackageReleaseNotes(),
             'custom_message' => $msg->getCustomMessage(),
             'package' => $msg->getName(),
         ]);
