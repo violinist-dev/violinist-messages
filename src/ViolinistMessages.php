@@ -20,8 +20,8 @@ class ViolinistMessages
             $this->twig = new \Twig_Environment($loader);
         } else {
             // twig 3.
-            $loader = new \Twig\Loader\FilesystemLoader('/path/to/templates');
-            $this>twig = new \Twig\Environment($loader, []);
+            $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+            $this->twig = new \Twig\Environment($loader, []);
         }
     }
 
