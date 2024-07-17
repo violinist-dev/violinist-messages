@@ -6,7 +6,7 @@ class ViolinistMessages
 {
 
     /**
-     * @var \Twig_Environment
+     * @var \Twig\Environment
      */
     private $twig;
 
@@ -15,14 +15,8 @@ class ViolinistMessages
      */
     public function __construct()
     {
-        if (!class_exists('\Twig\Loader\FilesystemLoader')) {
-            $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
-            $this->twig = new \Twig_Environment($loader);
-        } else {
-            // twig 3.
-            $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
-            $this->twig = new \Twig\Environment($loader, []);
-        }
+         $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+         $this->twig = new \Twig\Environment($loader, []);
     }
 
     /**
