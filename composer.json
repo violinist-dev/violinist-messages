@@ -6,7 +6,7 @@
         "psr-4": {"eiriksm\\ViolinistMessages\\": "src"}
     },
     "require": {
-        "twig/twig": "^2"
+        "twig/twig": "^2||^3"
     },
     "scripts": {
       "phpstan": "phpstan analyse src tests",
