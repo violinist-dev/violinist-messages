@@ -15,8 +15,14 @@ class ViolinistMessages
      */
     public function __construct()
     {
-        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
-        $this->twig = new \Twig_Environment($loader);
+        if (!class_exists('\Twig\Loader\FilesystemLoader')) {
+            $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../templates');
+            $this->twig = new \Twig_Environment($loader);
+        } else {
+            // twig 3.
+            $loader = new \Twig\Loader\FilesystemLoader('/path/to/templates');
+            $this>twig = new \Twig\Environment($loader, []);
+        }
     }
 
     /**
