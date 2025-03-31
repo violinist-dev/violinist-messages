@@ -78,6 +78,11 @@ file_put_contents("$directory/index.html", sprintf($template, '    <ul>
     </a>
 </li>
 <li>
+    <a href="body-group.html">
+        Pull request body for group
+    </a>
+</li>
+<li>
     <a href="closed.html">
         Pull request closed
     </a>
@@ -90,5 +95,7 @@ file_put_contents("$directory/index.html", sprintf($template, '    <ul>
 </ul>'));
 $other_update = clone $update;
 $other_update->setSecurityUpdate(true);
+file_put_contents("$directory/body-group.html", sprintf($template, $converter->convert($message->getPullRequestBodyForGroup())));
+
 file_put_contents("$directory/closed.html", sprintf($template, $converter->convert($message->getPullRequestClosedMessage(123))));
 file_put_contents("$directory/title.html", sprintf($template, $converter->convert($message->getPullRequestTitle($update)) . '<hr><h2>Update with security release:</h2>' . $converter->convert($message->getPullRequestTitle($other_update))));
