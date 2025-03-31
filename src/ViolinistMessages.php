@@ -45,6 +45,21 @@ class ViolinistMessages
         return $this->getPullRequestBody($msg);
     }
 
+    public function getPullRequestBodyForGroup()
+    {
+        $twig = $this->twig->load('pull-request-body-group.twig');
+        return $twig->render([
+            'updated_list' => [],
+            'title' => '',
+            'intro' => self::getIntroText(),
+        ]);
+    }
+
+    public static function getIntroText()
+    {
+        return 'If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.';
+    }
+
     /**
      * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
      *
