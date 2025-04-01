@@ -122,7 +122,7 @@ This is an automated pull request from [Violinist](https://violinist.io/): Conti
         $update_items = [
             new UpdateListItem('first/updated', '2.0.1', '2.0.2'),
             new UpdateListItem('other/new', '2.0.0'),
-            $removed
+            $removed,
         ];
         $update = new ViolinistUpdate();
         $update->setUpdatedList($update_items);
@@ -147,12 +147,60 @@ If you find you need to update the codebase to be able to merge this branch (for
 This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).', $body);
     }
 
+  public function testBodyGroup()
+  {
+    $message = new ViolinistMessages();
+    $first_list_item = new ViolinistUpdate();
+    $first_list_item->setName('first/updated');
+    $first_list_item->setCurrentVersion('2.0.1');
+    $first_list_item->setNewVersion('2.0.2');
+    $first_list_item->setPackageReleaseNotes([
+        '- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)',
+        '- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)',
+    ]);
+    $body = trim($message->getPullRequestBodyForGroup('Test group', [$first_list_item]));
+    $this->assertEquals('This pull request updates the packages inside `Test group` to the latest version available (and inside your package constraint). The packages updated are listed below, along with available information for them.
+
+If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
+
+## Summary
+
+| Package | Current version | New version |
+| ------- | --------------- | ----------- |
+| first/updated | `2.0.1` | `2.0.2` |
+
+## first/updated (2.0.1 → 2.0.2)
+
+### Release notes
+
+Here are the release notes for all versions released between your current running version, and the version this PR updates the package to.
+
+<details>
+    <summary>List of release notes</summary>
+
+- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)
+- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)
+
+</details>
+
+
+
+
+
+### Working with this branch
+
+If you find you need to update the codebase to be able to merge this branch (for example update some tests or rebuild some assets), please note that violinist will force push to this branch to keep it up to date. This means you should not work on this branch directly, since you might lose your work. [Read more about branches created by violinist.io here](https://docs.violinist.io/introduction/branches/).
+
+***
+This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).', $body);
+  }
+
     protected function getLegacyItem()
     {
         return [
           'vendor/package',
           '3',
-          '4'
+          '4',
         ];
     }
 }
