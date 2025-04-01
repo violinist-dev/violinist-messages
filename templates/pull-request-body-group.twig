@@ -1,5 +1,59 @@
-{{ intro }}
+This pull request updates the packages inside `{{ group_name }}` to the latest version available (and inside your package constraint). The packages updated are listed below, along with available information for them.
 
-group update
+{{ include('body-intro.twig') }}
+
+## Summary
+
+| Package | Current version | New version |
+| ------- | --------------- | ----------- |
+{% for update in update_list %}
+| {{ update.name }} | `{{ update.version_from }}` | `{{ update.version_to }}` |
+{% endfor %}
+
+{% for update in update_list %}
+## {{ update.name }} ({{ update.version_from }} → {{ update.version_to }})
+
+{% if update.release_notes %}
+### Release notes
+
+Here are the release notes for all versions released between your current running version, and the version this PR updates the package to.
+
+<details>
+    <summary>List of release notes</summary>
+
+{% for link in update.release_notes %}
+{{ link }}
+{% endfor %}
+
+</details>
+
+{% endif%}
+
+{% if update.changed_files %}
+### Changed files
+
+Here is a list of changed files between the version you use, and the version this pull request updates to:
+
+<details>
+    <summary>List of changed files</summary>
+
+    {% for file in update.changed_files %}
+    {{ file }}
+    {% endfor %}
+
+</details>
+
+{% endif %}
+
+{% if update.changelog %}
+### Changelog
+
+Here is a list of changes between the version you use, and the version this pull request updates to:
+
+{{ update.changelog }}
+
+{% endif %}
+
+{% endfor %}
 
 {{ include('body-footer.twig') }}

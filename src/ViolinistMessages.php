@@ -45,19 +45,27 @@ class ViolinistMessages
         return $this->getPullRequestBody($msg);
     }
 
-    public function getPullRequestBodyForGroup()
+  /**
+   * @param \eiriksm\ViolinistMessages\ViolinistUpdate[] $update_list
+   */
+    public function getPullRequestBodyForGroup(string $group_name, array $update_list = [])
     {
         $twig = $this->twig->load('pull-request-body-group.twig');
+        $update_list_array = [];
+        foreach ($update_list as $update) {
+            $update_list_array[] = [
+                'name' => $update->getName(),
+                'release_notes' => $update->getPackageReleaseNotes(),
+                'changed_files' => $update->getChangedFiles(),
+                'changelog' => $update->getChangelog(),
+                'version_from' => $update->getCurrentVersion(),
+                'version_to' => $update->getNewVersion(),
+            ];
+        }
         return $twig->render([
-            'updated_list' => [],
-            'title' => '',
-            'intro' => self::getIntroText(),
+            'update_list' => $update_list_array,
+            'group_name' => $group_name,
         ]);
-    }
-
-    public static function getIntroText()
-    {
-        return 'If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.';
     }
 
     /**
