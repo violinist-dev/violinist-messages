@@ -147,19 +147,19 @@ If you find you need to update the codebase to be able to merge this branch (for
 This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).', $body);
     }
 
-  public function testBodyGroup()
-  {
-    $message = new ViolinistMessages();
-    $first_list_item = new ViolinistUpdate();
-    $first_list_item->setName('first/updated');
-    $first_list_item->setCurrentVersion('2.0.1');
-    $first_list_item->setNewVersion('2.0.2');
-    $first_list_item->setPackageReleaseNotes([
+    public function testBodyGroup()
+    {
+        $message = new ViolinistMessages();
+        $first_list_item = new ViolinistUpdate();
+        $first_list_item->setName('first/updated');
+        $first_list_item->setCurrentVersion('2.0.1');
+        $first_list_item->setNewVersion('2.0.2');
+        $first_list_item->setPackageReleaseNotes([
         '- [Release notes for tag 8.x-1.27](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.27)',
         '- [Release notes for tag 8.x-1.26](https://www.drupal.org/project/admin_toolbar/releases/8.x-1.26)',
-    ]);
-    $body = trim($message->getPullRequestBodyForGroup('Test group', [$first_list_item]));
-    $this->assertEquals('This pull request updates the packages inside `Test group` to the latest version available (and inside your package constraint). The packages updated are listed below, along with available information for them.
+        ]);
+        $body = trim($message->getPullRequestBodyForGroup('Test group', [$first_list_item]));
+        $this->assertEquals('This pull request updates the packages inside `Test group` to the latest version available (and inside your package constraint). The packages updated are listed below, along with available information for them.
 
 If you have a high test coverage index, and your tests for this pull request are passing, it should be both safe and recommended to merge this update.
 
@@ -193,7 +193,7 @@ If you find you need to update the codebase to be able to merge this branch (for
 
 ***
 This is an automated pull request from [Violinist](https://violinist.io/): Continuously and automatically monitor and update your composer dependencies. Have ideas on how to improve this message? All violinist messages are open-source, and [can be improved here](https://github.com/violinist-dev/violinist-messages).', $body);
-  }
+    }
 
     protected function getLegacyItem()
     {
