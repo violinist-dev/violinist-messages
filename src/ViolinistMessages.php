@@ -45,6 +45,29 @@ class ViolinistMessages
         return $this->getPullRequestBody($msg);
     }
 
+  /**
+   * @param \eiriksm\ViolinistMessages\ViolinistUpdate[] $update_list
+   */
+    public function getPullRequestBodyForGroup(string $group_name, array $update_list = [])
+    {
+        $twig = $this->twig->load('pull-request-body-group.twig');
+        $update_list_array = [];
+        foreach ($update_list as $update) {
+            $update_list_array[] = [
+                'name' => $update->getName(),
+                'release_notes' => $update->getPackageReleaseNotes(),
+                'changed_files' => $update->getChangedFiles(),
+                'changelog' => $update->getChangelog(),
+                'version_from' => $update->getCurrentVersion(),
+                'version_to' => $update->getNewVersion(),
+            ];
+        }
+        return $twig->render([
+            'update_list' => $update_list_array,
+            'group_name' => $group_name,
+        ]);
+    }
+
     /**
      * @param \eiriksm\ViolinistMessages\ViolinistUpdate $msg
      *
